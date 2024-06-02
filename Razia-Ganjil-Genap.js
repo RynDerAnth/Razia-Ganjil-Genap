@@ -99,5 +99,23 @@ function kenaRazia(date, data) {
         let tilang = 0;
   
         for (let j = 0; j < 
+             kendaraan.rute.length; j++) {
+          let rute = kendaraan.rute[j];
+          if (
+            (isGanjil && nomorBelakang % 2 === 0 && (rute === "Gajah Mada" || rute === "Hayam Wuruk" || rute === "Sisingamangaraja" || rute === "Panglima Polim" || rute === "Fatmawati" || rute === "Tomang Raya")) ||
+            (!isGanjil && nomorBelakang % 2 !== 0 && (rute === "Gajah Mada" || rute === "Hayam Wuruk" || rute === "Sisingamangaraja" || rute === "Panglima Polim" || rute === "Fatmawati" || rute === "Tomang Raya"))
+          ) {
+            tilang++;
+          }
+        }
+  
+        if (tilang > 0) {
+          hasilRazia.push({ name: kendaraan.name, tilang: tilang });
+        }
+      }
+    }
+  
+return hasilRazia;
+  }
 
 // [ { name: ‘Toni’, tilang: 1 }, { name: ‘Anna’, tilang: 3 } ]
